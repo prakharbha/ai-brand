@@ -5,7 +5,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-start pt-20 sm:justify-center sm:pt-0 bg-white px-4 text-center">
       <div className="animate-fade-in-down">
         <Image
-          src="/logo-ai-brand-exhibit.jpg"
+          src="/logo-ai-brand-exhibit.png"
           alt="AI Brand Exhibit Logo"
           width={400}
           height={216}

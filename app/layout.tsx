@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "AI Brand Exhibit",
   description: "Events and Content Management",
   icons: {
-    icon: "/logo-ai-brand-exhibit.jpg",
+    icon: "/logo-ai-brand-exhibit.png",
   },
 };
 
