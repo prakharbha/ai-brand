@@ -29,7 +29,9 @@ export default function Home() {
           <a href="mailto:sales@aibrandexhibit.com" className="text-lg hover:text-zinc-800 transition-colors">
             sales@aibrandexhibit.com
           </a>
-          <p className="text-lg font-light">+91 98914 98148</p>
+          <a href="tel:+919891498148" className="text-lg font-light hover:text-zinc-800 transition-colors">
+            +91 98914 98148
+          </a>
         </div>
       </div>
 
