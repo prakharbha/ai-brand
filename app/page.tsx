@@ -26,10 +26,10 @@ export default function Home() {
 
         <div className="mt-12 flex flex-col items-center space-y-2 text-zinc-500 animate-fade-in">
           <p className="text-sm uppercase tracking-widest text-zinc-400">Get in Touch</p>
-          <a href="mailto:contact@aibrandexhibit.com" className="text-lg hover:text-zinc-800 transition-colors">
-            contact@aibrandexhibit.com
+          <a href="mailto:sales@aibrandexhibit.com" className="text-lg hover:text-zinc-800 transition-colors">
+            sales@aibrandexhibit.com
           </a>
-          <p className="text-lg font-light">+91 98765 43210</p>
+          <p className="text-lg font-light">+91 98914 98148</p>
         </div>
       </div>
 
