@@ -24,11 +24,11 @@ export default function BackgroundEffect() {
         canvas.height = height;
 
         const colors = [
-            "rgba(31, 24, 35, 0.5)", // Dark Purple/Black
-            "rgba(222, 96, 66, 0.5)", // Orange/Red
-            "rgba(234, 218, 211, 0.5)", // Light Pink
-            "rgba(122, 58, 143, 0.5)", // Purple
-            "rgba(140, 140, 138, 0.5)", // Grey
+            "rgba(31, 24, 35, 0.8)", // Dark Purple/Black
+            "rgba(222, 96, 66, 0.8)", // Orange/Red
+            "rgba(234, 218, 211, 0.8)", // Light Pink
+            "rgba(122, 58, 143, 0.8)", // Purple
+            "rgba(140, 140, 138, 0.8)", // Grey
         ];
 
         class Particle {
