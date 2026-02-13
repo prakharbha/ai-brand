@@ -31,7 +31,7 @@ export default function Home() {
         </div>
       </div>
 
-      <footer className="fixed bottom-4 text-xs text-zinc-300 animate-fade-in">
+      <footer className="fixed bottom-4 text-xs text-zinc-600 animate-fade-in">
         &copy; {new Date().getFullYear()} AI Brand Exhibit. All rights reserved.
       </footer>
     </main>
