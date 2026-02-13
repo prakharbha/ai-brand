@@ -1,8 +1,10 @@
 import Image from "next/image";
+import BackgroundEffect from "./components/BackgroundEffect";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-start pt-20 sm:justify-center sm:pt-0 bg-white px-4 text-center">
+    <main className="flex min-h-screen flex-col items-center justify-start pt-20 sm:justify-center sm:pt-0 px-4 text-center relative isolate">
+      <BackgroundEffect />
       <div className="animate-fade-in-down">
         <Image
           src="/logo-ai-brand-exhibit.png"
