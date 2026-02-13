@@ -23,6 +23,14 @@ export default function BackgroundEffect() {
         canvas.width = width;
         canvas.height = height;
 
+        const colors = [
+            "rgba(31, 24, 35, 0.5)", // Dark Purple/Black
+            "rgba(222, 96, 66, 0.5)", // Orange/Red
+            "rgba(234, 218, 211, 0.5)", // Light Pink
+            "rgba(122, 58, 143, 0.5)", // Purple
+            "rgba(140, 140, 138, 0.5)", // Grey
+        ];
+
         class Particle {
             x: number;
             y: number;
@@ -30,16 +38,16 @@ export default function BackgroundEffect() {
             speedY: number;
             speedX: number;
             originalSpeedY: number;
-            opacity: number;
+            color: string;
 
             constructor() {
                 this.x = Math.random() * width;
                 this.y = Math.random() * height;
-                this.size = Math.random() * 2 + 0.5; // Small, subtle particles
+                this.size = Math.random() * 3 + 1; // Slightly larger for color visibility
                 this.speedY = Math.random() * -0.5 - 0.2; // Move upwards (antigravity)
                 this.originalSpeedY = this.speedY;
                 this.speedX = Math.random() * 0.4 - 0.2; // Slight horizontal drift
-                this.opacity = Math.random() * 0.5 + 0.1; // Translucent
+                this.color = colors[Math.floor(Math.random() * colors.length)];
             }
 
             update() {
@@ -84,7 +92,7 @@ export default function BackgroundEffect() {
 
             draw() {
                 if (!ctx) return;
-                ctx.fillStyle = `rgba(150, 150, 150, ${this.opacity})`; // Light grey particles
+                ctx.fillStyle = this.color;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
