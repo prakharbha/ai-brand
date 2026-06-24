@@ -79,6 +79,7 @@ export default function Navbar() {
                   height={130}
                   className="h-20 w-auto object-contain max-w-[90%]"
                   priority
+                  sizes="240px"
                 />
               </Link>
             </div>
@@ -226,6 +227,7 @@ export default function Navbar() {
                   width={180}
                   height={98}
                   className="h-16 w-auto object-contain"
+                  sizes="180px"
                 />
               </Link>
               <button
