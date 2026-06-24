@@ -11,6 +11,7 @@ const NAV_ITEMS = [
   { name: "About Us", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Clients", href: "/clients" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 const SERVICES_LIST = [
@@ -31,7 +32,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(true);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -54,7 +55,7 @@ export default function Navbar() {
   useEffect(() => {
     setIsOpen(false);
     setShowDropdown(false);
-    setMobileServicesOpen(false);
+    setMobileServicesOpen(true);
   }, [pathname]);
 
   return (
@@ -85,8 +86,8 @@ export default function Navbar() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:block">
-              <div className="ml-10 flex items-center space-x-8">
-                {NAV_ITEMS.map((item) => {
+               <div className="ml-10 flex items-center space-x-8">
+                 {NAV_ITEMS.filter((item) => item.name !== "Contact Us").map((item) => {
                   if (item.name === "Services") {
                     return (
                       <div
@@ -309,50 +310,6 @@ export default function Navbar() {
               </div>
             );
           })}
-        </div>
-
-        {/* Bottom CTA + Contact Info */}
-        <div className="px-5 pb-8 pt-4 border-t border-zinc-100 space-y-4">
-          {/* Contact Us CTA */}
-          <Link
-            href="/contact"
-            onClick={() => setIsOpen(false)}
-            className="block w-full text-center px-4 py-4 rounded-2xl text-base font-bold uppercase tracking-wider bg-gradient-to-r from-brand-orange to-brand-purple text-white shadow-lg shadow-brand-orange/20 hover:opacity-95 transition-opacity"
-          >
-            Contact Us
-          </Link>
-
-          {/* Contact Details */}
-          <div className="flex flex-col gap-2.5">
-            <a
-              href={`tel:${CONTACT_PHONE.replace(/\s/g, "")}`}
-              className="flex items-center gap-3 px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-100 hover:border-brand-orange/30 transition-colors group"
-            >
-              <div className="p-1.5 rounded-lg bg-brand-orange/10 text-brand-orange shrink-0">
-                <Phone className="w-3.5 h-3.5" />
-              </div>
-              <div>
-                <p className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider">Call</p>
-                <p className="text-xs font-semibold text-zinc-800">{CONTACT_PHONE}</p>
-              </div>
-            </a>
-            <a
-              href={`mailto:${CONTACT_EMAIL}`}
-              className="flex items-center gap-3 px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-100 hover:border-brand-orange/30 transition-colors group"
-            >
-              <div className="p-1.5 rounded-lg bg-brand-purple/10 text-brand-purple shrink-0">
-                <Mail className="w-3.5 h-3.5" />
-              </div>
-              <div>
-                <p className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider">Email</p>
-                <p className="text-xs font-semibold text-zinc-800">{CONTACT_EMAIL}</p>
-              </div>
-            </a>
-          </div>
-
-          <p className="text-center text-[11px] text-zinc-400">
-            © {new Date().getFullYear()} AI Brand Exhibit (OPC) Pvt. Ltd.
-          </p>
         </div>
       </div>
     </>
