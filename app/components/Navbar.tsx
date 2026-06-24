@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Menu, X, ChevronDown, Phone, Mail, ArrowRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_ITEMS = [
   { name: "Home", href: "/" },
@@ -118,46 +117,42 @@ export default function Navbar() {
                           </button>
                         </div>
 
-                        <AnimatePresence>
-                          {showDropdown && (
-                            <motion.div
-                              initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                              animate={{ opacity: 1, y: 0, scale: 1 }}
-                              exit={{ opacity: 0, y: 10, scale: 0.98 }}
-                              transition={{ duration: 0.2, ease: "easeOut" }}
-                              className="absolute left-0 mt-2 w-72 bg-white/95 backdrop-blur-lg border border-zinc-150 rounded-2xl shadow-xl p-2.5 z-50"
-                            >
-                              <div className="space-y-0.5">
-                                {SERVICES_LIST.map((srv) => {
-                                  const isSubActive = pathname === `/services/${srv.id}`;
-                                  return (
-                                    <Link
-                                      key={srv.id}
-                                      href={`/services/${srv.id}`}
-                                      onClick={() => setShowDropdown(false)}
-                                      className={`block px-4 py-2.5 rounded-xl text-sm font-semibold tracking-wide transition-all ${
-                                        isSubActive
-                                          ? "text-brand-orange bg-zinc-50"
-                                          : "text-zinc-650 hover:text-zinc-950 hover:bg-zinc-50"
-                                      }`}
-                                    >
-                                      {srv.title}
-                                    </Link>
-                                  );
-                                })}
-                                <div className="border-t border-zinc-100 mt-2 pt-2">
-                                  <Link
-                                    href="/services"
-                                    onClick={() => setShowDropdown(false)}
-                                    className="block px-4 py-2.5 rounded-xl text-sm font-bold text-center text-white bg-gradient-to-r from-brand-orange to-brand-purple hover:opacity-95 shadow-sm transition-all"
-                                  >
-                                    All Services Overview
-                                  </Link>
-                                </div>
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
+                        <div
+                          className={`absolute left-0 mt-2 w-72 bg-white/95 backdrop-blur-lg border border-zinc-150 rounded-2xl shadow-xl p-2.5 z-50 transition-all duration-200 origin-top-left ${
+                            showDropdown
+                              ? "opacity-100 translate-y-0 scale-100 visible"
+                              : "opacity-0 translate-y-2 scale-95 invisible pointer-events-none"
+                          }`}
+                        >
+                          <div className="space-y-0.5">
+                            {SERVICES_LIST.map((srv) => {
+                              const isSubActive = pathname === `/services/${srv.id}`;
+                              return (
+                                <Link
+                                  key={srv.id}
+                                  href={`/services/${srv.id}`}
+                                  onClick={() => setShowDropdown(false)}
+                                  className={`block px-4 py-2.5 rounded-xl text-sm font-semibold tracking-wide transition-all ${
+                                    isSubActive
+                                      ? "text-brand-orange bg-zinc-50"
+                                      : "text-zinc-650 hover:text-zinc-950 hover:bg-zinc-50"
+                                  }`}
+                                >
+                                  {srv.title}
+                                </Link>
+                              );
+                            })}
+                            <div className="border-t border-zinc-100 mt-2 pt-2">
+                              <Link
+                                href="/services"
+                                onClick={() => setShowDropdown(false)}
+                                className="block px-4 py-2.5 rounded-xl text-sm font-bold text-center text-white bg-gradient-to-r from-brand-orange to-brand-purple hover:opacity-95 shadow-sm transition-all"
+                              >
+                                All Services Overview
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     );
                   }
@@ -208,179 +203,158 @@ export default function Navbar() {
       </nav>
 
       {/* Full-Screen Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            key="mobile-menu"
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
-            className="fixed inset-0 z-[60] bg-white flex flex-col md:hidden"
+      <div
+        className={`fixed inset-0 z-[60] bg-white flex flex-col md:hidden transition-all duration-300 ease-in-out ${
+          isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none"
+        }`}
+      >
+        {/* Top Bar with Logo + Close */}
+        <div className="flex items-center justify-between px-5 pt-4 pb-3 border-b border-zinc-100">
+          <Link href="/" onClick={() => setIsOpen(false)}>
+            <Image
+              src="/logo-ai-brand-exhibit.png"
+              alt="AI Brand Exhibit"
+              width={180}
+              height={98}
+              className="h-16 w-auto object-contain"
+              sizes="180px"
+            />
+          </Link>
+          <button
+            onClick={() => setIsOpen(false)}
+            className="p-2.5 rounded-full bg-zinc-100 text-zinc-600 hover:bg-zinc-200 transition-colors"
+            aria-label="Close menu"
           >
-            {/* Top Bar with Logo + Close */}
-            <div className="flex items-center justify-between px-5 pt-4 pb-3 border-b border-zinc-100">
-              <Link href="/" onClick={() => setIsOpen(false)}>
-                <Image
-                  src="/logo-ai-brand-exhibit.png"
-                  alt="AI Brand Exhibit"
-                  width={180}
-                  height={98}
-                  className="h-16 w-auto object-contain"
-                  sizes="180px"
-                />
-              </Link>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="p-2.5 rounded-full bg-zinc-100 text-zinc-600 hover:bg-zinc-200 transition-colors"
-                aria-label="Close menu"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
+            <X className="h-5 w-5" />
+          </button>
+        </div>
 
-            {/* Navigation Links */}
-            <div className="flex-1 overflow-y-auto px-5 pt-6 pb-4 space-y-1">
-              {NAV_ITEMS.map((item, idx) => {
-                if (item.name === "Services") {
-                  const isAnySubActive = pathname.startsWith("/services");
-                  return (
-                    <motion.div
-                      key={item.name}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.06 + 0.1 }}
-                      className="space-y-1"
-                    >
-                      <button
-                        onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                        className={`flex items-center justify-between w-full px-4 py-4 rounded-2xl text-lg font-semibold transition-colors ${
-                          isAnySubActive
-                            ? "text-zinc-950 bg-zinc-50"
-                            : "text-zinc-700 hover:text-zinc-950 hover:bg-zinc-50"
-                        }`}
-                      >
-                        <span>Services</span>
-                        <ChevronDown
-                          className={`w-5 h-5 transition-transform duration-200 ${
-                            mobileServicesOpen ? "rotate-180 text-brand-orange" : "text-zinc-400"
-                          }`}
-                        />
-                      </button>
-
-                      <AnimatePresence>
-                        {mobileServicesOpen && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            className="overflow-hidden"
-                          >
-                            <div className="pl-4 pt-1 pb-2 space-y-0.5 border-l-2 border-brand-orange/30 ml-4">
-                              {SERVICES_LIST.map((srv) => {
-                                const isSubActive = pathname === `/services/${srv.id}`;
-                                return (
-                                  <Link
-                                    key={srv.id}
-                                    href={`/services/${srv.id}`}
-                                    onClick={() => setIsOpen(false)}
-                                    className={`flex items-center gap-2 px-3 py-2.5 rounded-xl text-base font-medium transition-colors ${
-                                      isSubActive
-                                        ? "text-brand-orange bg-orange-50"
-                                        : "text-zinc-650 hover:text-zinc-950 hover:bg-zinc-50"
-                                    }`}
-                                  >
-                                    <span className="w-1.5 h-1.5 rounded-full bg-brand-orange/50 shrink-0" />
-                                    {srv.title}
-                                  </Link>
-                                );
-                              })}
-                              <Link
-                                href="/services"
-                                onClick={() => setIsOpen(false)}
-                                className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-base font-bold text-brand-purple hover:bg-purple-50 transition-colors"
-                              >
-                                <ArrowRight className="w-4 h-4" />
-                                All Services Overview
-                              </Link>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </motion.div>
-                  );
-                }
-
-                const isActive = pathname === item.href;
-                return (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.06 + 0.1 }}
+        {/* Navigation Links */}
+        <div className="flex-1 overflow-y-auto px-5 pt-6 pb-4 space-y-1">
+          {NAV_ITEMS.map((item) => {
+            if (item.name === "Services") {
+              const isAnySubActive = pathname.startsWith("/services");
+              return (
+                <div key={item.name} className="space-y-1">
+                  <button
+                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                    className={`flex items-center justify-between w-full px-4 py-4 rounded-2xl text-lg font-semibold transition-colors ${
+                      isAnySubActive
+                        ? "text-zinc-950 bg-zinc-50"
+                        : "text-zinc-700 hover:text-zinc-950 hover:bg-zinc-50"
+                    }`}
                   >
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className={`block px-4 py-4 rounded-2xl text-lg font-semibold transition-colors ${
-                        isActive
-                          ? "text-zinc-950 bg-zinc-50"
-                          : "text-zinc-700 hover:text-zinc-950 hover:bg-zinc-50"
+                    <span>Services</span>
+                    <ChevronDown
+                      className={`w-5 h-5 transition-transform duration-200 ${
+                        mobileServicesOpen ? "rotate-180 text-brand-orange" : "text-zinc-400"
                       }`}
-                    >
-                      {item.name}
-                    </Link>
-                  </motion.div>
-                );
-              })}
-            </div>
+                    />
+                  </button>
 
-            {/* Bottom CTA + Contact Info */}
-            <div className="px-5 pb-8 pt-4 border-t border-zinc-100 space-y-4">
-              {/* Contact Us CTA */}
-              <Link
-                href="/contact"
-                onClick={() => setIsOpen(false)}
-                className="block w-full text-center px-4 py-4 rounded-2xl text-base font-bold uppercase tracking-wider bg-gradient-to-r from-brand-orange to-brand-purple text-white shadow-lg shadow-brand-orange/20 hover:opacity-95 transition-opacity"
-              >
-                Contact Us
-              </Link>
+                  <div
+                    className={`overflow-hidden transition-all duration-300 origin-top ${
+                      mobileServicesOpen
+                        ? "max-h-[500px] opacity-100 visible"
+                        : "max-h-0 opacity-0 invisible pointer-events-none"
+                    }`}
+                  >
+                    <div className="pl-4 pt-1 pb-2 space-y-0.5 border-l-2 border-brand-orange/30 ml-4">
+                      {SERVICES_LIST.map((srv) => {
+                        const isSubActive = pathname === `/services/${srv.id}`;
+                        return (
+                          <Link
+                            key={srv.id}
+                            href={`/services/${srv.id}`}
+                            onClick={() => setIsOpen(false)}
+                            className={`flex items-center gap-2 px-3 py-2.5 rounded-xl text-base font-medium transition-colors ${
+                              isSubActive
+                                ? "text-brand-orange bg-orange-50"
+                                : "text-zinc-650 hover:text-zinc-950 hover:bg-zinc-50"
+                            }`}
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-brand-orange/50 shrink-0" />
+                            {srv.title}
+                          </Link>
+                        );
+                      })}
+                      <Link
+                        href="/services"
+                        onClick={() => setIsOpen(false)}
+                        className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-base font-bold text-brand-purple hover:bg-purple-50 transition-colors"
+                      >
+                        <ArrowRight className="w-4 h-4" />
+                        All Services Overview
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
 
-              {/* Contact Details */}
-              <div className="flex flex-col gap-2.5">
-                <a
-                  href={`tel:${CONTACT_PHONE.replace(/\s/g, "")}`}
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-100 hover:border-brand-orange/30 transition-colors group"
+            const isActive = pathname === item.href;
+            return (
+              <div key={item.name}>
+                <Link
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`block px-4 py-4 rounded-2xl text-lg font-semibold transition-colors ${
+                    isActive
+                      ? "text-zinc-950 bg-zinc-50"
+                      : "text-zinc-700 hover:text-zinc-950 hover:bg-zinc-50"
+                  }`}
                 >
-                  <div className="p-1.5 rounded-lg bg-brand-orange/10 text-brand-orange shrink-0">
-                    <Phone className="w-3.5 h-3.5" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider">Call</p>
-                    <p className="text-xs font-semibold text-zinc-800">{CONTACT_PHONE}</p>
-                  </div>
-                </a>
-                <a
-                  href={`mailto:${CONTACT_EMAIL}`}
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-100 hover:border-brand-orange/30 transition-colors group"
-                >
-                  <div className="p-1.5 rounded-lg bg-brand-purple/10 text-brand-purple shrink-0">
-                    <Mail className="w-3.5 h-3.5" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider">Email</p>
-                    <p className="text-xs font-semibold text-zinc-800">{CONTACT_EMAIL}</p>
-                  </div>
-                </a>
+                  {item.name}
+                </Link>
               </div>
+            );
+          })}
+        </div>
 
-              <p className="text-center text-[11px] text-zinc-400">
-                © {new Date().getFullYear()} AI Brand Exhibit (OPC) Pvt. Ltd.
-              </p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        {/* Bottom CTA + Contact Info */}
+        <div className="px-5 pb-8 pt-4 border-t border-zinc-100 space-y-4">
+          {/* Contact Us CTA */}
+          <Link
+            href="/contact"
+            onClick={() => setIsOpen(false)}
+            className="block w-full text-center px-4 py-4 rounded-2xl text-base font-bold uppercase tracking-wider bg-gradient-to-r from-brand-orange to-brand-purple text-white shadow-lg shadow-brand-orange/20 hover:opacity-95 transition-opacity"
+          >
+            Contact Us
+          </Link>
+
+          {/* Contact Details */}
+          <div className="flex flex-col gap-2.5">
+            <a
+              href={`tel:${CONTACT_PHONE.replace(/\s/g, "")}`}
+              className="flex items-center gap-3 px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-100 hover:border-brand-orange/30 transition-colors group"
+            >
+              <div className="p-1.5 rounded-lg bg-brand-orange/10 text-brand-orange shrink-0">
+                <Phone className="w-3.5 h-3.5" />
+              </div>
+              <div>
+                <p className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider">Call</p>
+                <p className="text-xs font-semibold text-zinc-800">{CONTACT_PHONE}</p>
+              </div>
+            </a>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="flex items-center gap-3 px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-100 hover:border-brand-orange/30 transition-colors group"
+            >
+              <div className="p-1.5 rounded-lg bg-brand-purple/10 text-brand-purple shrink-0">
+                <Mail className="w-3.5 h-3.5" />
+              </div>
+              <div>
+                <p className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider">Email</p>
+                <p className="text-xs font-semibold text-zinc-800">{CONTACT_EMAIL}</p>
+              </div>
+            </a>
+          </div>
+
+          <p className="text-center text-[11px] text-zinc-400">
+            © {new Date().getFullYear()} AI Brand Exhibit (OPC) Pvt. Ltd.
+          </p>
+        </div>
+      </div>
     </>
   );
 }

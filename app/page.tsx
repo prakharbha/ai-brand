@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-import { motion } from "framer-motion";
 import { Spotlight } from "./components/Spotlight";
 import BackgroundEffect from "./components/BackgroundEffect";
 import Link from "next/link";
@@ -68,8 +67,10 @@ const MARQUEE_CLIENTS = [...ALL_CLIENTS, ...ALL_CLIENTS];
 export default function Home() {
   const [splineLoading, setSplineLoading] = useState(true);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const mediaQuery = window.matchMedia("(min-width: 1024px)");
     setIsDesktop(mediaQuery.matches);
 
@@ -132,11 +133,10 @@ export default function Home() {
               {/* Right Column: 21st Dev Interactive Robot (Spline 3D Scene) */}
               {isDesktop && (
                 <div className="hidden lg:flex lg:col-span-5 relative w-full h-[400px] md:h-[500px] items-center justify-center z-20">
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                    className="w-full h-full rounded-2xl overflow-hidden border border-zinc-100 shadow-xl relative bg-gradient-to-br from-[#fff0f5]/80 via-[#fef6f6]/80 to-[#f3e8ff]/80 backdrop-blur-md"
+                  <div
+                    className={`w-full h-full rounded-2xl overflow-hidden border border-zinc-100 shadow-xl relative bg-gradient-to-br from-[#fff0f5]/80 via-[#fef6f6]/80 to-[#f3e8ff]/80 backdrop-blur-md transition-all duration-1000 delay-300 ${
+                      mounted ? "opacity-100 scale-100" : "opacity-0 scale-95"
+                    }`}
                   >
                     {splineLoading && <SplineLoader />}
                     
@@ -145,7 +145,7 @@ export default function Home() {
                       onLoad={() => setSplineLoading(false)}
                       className="w-full h-full object-cover"
                     />
-                  </motion.div>
+                  </div>
                 </div>
               )}
             </div>
