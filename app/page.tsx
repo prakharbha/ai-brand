@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { Spotlight } from "./components/Spotlight";
@@ -67,6 +67,16 @@ const MARQUEE_CLIENTS = [...ALL_CLIENTS, ...ALL_CLIENTS];
 
 export default function Home() {
   const [splineLoading, setSplineLoading] = useState(true);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 1024px)");
+    setIsDesktop(mediaQuery.matches);
+
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
 
   return (
     <main className="min-h-screen bg-[#ffffff] text-[#18181b] relative overflow-hidden flex flex-col justify-center">
@@ -135,22 +145,24 @@ export default function Home() {
               </div>
 
               {/* Right Column: 21st Dev Interactive Robot (Spline 3D Scene) */}
-              <div className="lg:col-span-5 relative w-full h-[400px] md:h-[500px] flex items-center justify-center relative z-20">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1, delay: 0.5 }}
-                  className="w-full h-full rounded-2xl overflow-hidden border border-zinc-100 shadow-xl relative bg-gradient-to-br from-[#fff0f5]/80 via-[#fef6f6]/80 to-[#f3e8ff]/80 backdrop-blur-md"
-                >
-                  {splineLoading && <SplineLoader />}
-                  
-                  <Spline
-                    scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                    onLoad={() => setSplineLoading(false)}
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-              </div>
+              {isDesktop && (
+                <div className="hidden lg:flex lg:col-span-5 relative w-full h-[400px] md:h-[500px] items-center justify-center z-20">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, delay: 0.5 }}
+                    className="w-full h-full rounded-2xl overflow-hidden border border-zinc-100 shadow-xl relative bg-gradient-to-br from-[#fff0f5]/80 via-[#fef6f6]/80 to-[#f3e8ff]/80 backdrop-blur-md"
+                  >
+                    {splineLoading && <SplineLoader />}
+                    
+                    <Spline
+                      scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                      onLoad={() => setSplineLoading(false)}
+                      className="w-full h-full object-cover"
+                    />
+                  </motion.div>
+                </div>
+              )}
             </div>
 
             {/* --- ABOUT SUMMARY SECTION --- */}
