@@ -45,6 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="light">
       <head>
+        <link rel="preconnect" href="https://prod.spline.design" />
         <script
           type="speculationrules"
           dangerouslySetInnerHTML={{
