@@ -83,12 +83,7 @@ export default function Home() {
       {/* Background canvas particle effect */}
       <BackgroundEffect />
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="relative w-full pt-24 md:pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10 space-y-24 md:space-y-36"
-      >
+      <div className="relative w-full pt-24 md:pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10 space-y-24 md:space-y-36">
         {/* Spotlight */}
         <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="#de6042" />
 
@@ -97,12 +92,7 @@ export default function Home() {
               
               {/* Left Column: Slogan & Intro Text */}
               <div className="lg:col-span-7 flex flex-col justify-center text-left space-y-8 relative z-20">
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="space-y-4"
-                >
+                <div className="space-y-4">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-xs font-semibold text-zinc-800 tracking-wider uppercase">
                     <span className="w-2 h-2 rounded-full bg-brand-orange animate-ping" />
                     Corporate Profile 2026
@@ -119,15 +109,10 @@ export default function Home() {
                   <p className="text-zinc-650 text-lg md:text-xl font-light leading-relaxed max-w-xl">
                     Events | Exhibitions | Brand Experiences | Live Concerts | Content Development. Powered by 15+ years of strategic creativity.
                   </p>
-                </motion.div>
+                </div>
 
                 {/* CTAs */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                  className="flex flex-wrap gap-4"
-                >
+                <div className="flex flex-wrap gap-4">
                   <Link
                     href="/services"
                     className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-brand-orange to-brand-purple hover:from-brand-orange/95 hover:to-brand-purple/95 text-white font-medium text-sm tracking-wide shadow-lg shadow-brand-orange/20 hover:shadow-brand-orange/30 hover:scale-[1.02] transition-all duration-200"
@@ -141,7 +126,7 @@ export default function Home() {
                   >
                     Get in Touch
                   </Link>
-                </motion.div>
+                </div>
               </div>
 
               {/* Right Column: 21st Dev Interactive Robot (Spline 3D Scene) */}
@@ -344,7 +329,7 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-      </motion.div>
+      </div>
     </main>
   );
 }
