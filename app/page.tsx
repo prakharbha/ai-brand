@@ -339,7 +339,7 @@ export default function Home() {
                   href="/contact"
                   className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-brand-orange to-brand-purple hover:scale-[1.02] text-white font-semibold text-base tracking-wider uppercase transition-transform shadow-lg shadow-brand-orange/15"
                 >
-                  Start Inquiry
+                  Start Enquiry
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>

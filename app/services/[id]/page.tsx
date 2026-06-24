@@ -447,7 +447,7 @@ export default async function ServicePage({ params }: PageProps) {
                 href={`/contact?service=${encodeURIComponent(service.title)}`}
                 className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-zinc-950 hover:bg-zinc-900 text-white font-bold text-xs uppercase tracking-wider shadow-md transition-all hover:scale-[1.02]"
               >
-                <span>Start Inquiry</span>
+                <span>Start Enquiry</span>
                 <ArrowRight className="w-3.5 h-3.5 text-brand-orange" />
               </Link>
             </div>

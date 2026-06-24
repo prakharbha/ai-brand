@@ -103,7 +103,7 @@ export default function RootLayout({
 
             {/* Separator and Bottom Bar */}
             <div className="border-t border-zinc-200/60 pt-5 text-center">
-              <p className="text-xs text-zinc-400">
+              <p className="text-xs text-zinc-550">
                 &copy; {new Date().getFullYear()} AI Brand Exhibit (OPC) Private Limited. All rights reserved.
               </p>
             </div>
