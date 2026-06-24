@@ -2,25 +2,44 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #18181b; /* zinc-900 */
+  
+  --brand-dark: #0b060e;
+  --brand-orange: #de6042;
+  --brand-magenta: #e11d48;
+  --brand-yellow: #f59e0b;
+  --brand-purple: #7a3a8f;
+  --brand-gray: #8c8c8a;
+  --brand-pink: #eadad3;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   --font-mono: var(--font-geist-mono);
+
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-orange: var(--brand-orange);
+  --color-brand-magenta: var(--brand-magenta);
+  --color-brand-yellow: var(--brand-yellow);
+  --color-brand-purple: var(--brand-purple);
+  --color-brand-gray: var(--brand-gray);
+  --color-brand-pink: var(--brand-pink);
+
+  --text-xs: 1rem; /* Minimum 16px */
+  --text-sm: 1rem; /* Minimum 16px */
 
   --animate-fade-in-down: fade-in-down 0.8s ease-out;
   --animate-fade-in-up: fade-in-up 0.8s ease-out 0.3s backwards;
   --animate-fade-in: fade-in 1s ease-out 0.6s backwards;
+  --animate-spotlight: spotlight 2s ease .75s 1 normal forwards;
 
   @keyframes fade-in-down {
     0% {
       opacity: 0;
       transform: translateY(-20px);
     }
-
     100% {
       opacity: 1;
       transform: translateY(0);
@@ -32,7 +51,6 @@
       opacity: 0;
       transform: translateY(20px);
     }
-
     100% {
       opacity: 1;
       transform: translateY(0);
@@ -43,9 +61,19 @@
     0% {
       opacity: 0;
     }
-
     100% {
       opacity: 1;
+    }
+  }
+
+  @keyframes spotlight {
+    0% {
+      opacity: 0;
+      transform: translate(-72%, -62%) scale(0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -40%) scale(1);
     }
   }
 }
@@ -53,7 +81,65 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Light glassmorphism card utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(24, 24, 27, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(222, 96, 66, 0.2);
+  box-shadow: 0 10px 40px -15px rgba(222, 96, 66, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Customized light-scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f4f4f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(24, 24, 27, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(222, 96, 66, 0.6);
+}
+
+/* Line-drawing SVG animation */
+.svg-draw-path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ── Infinite logo marquee ── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }

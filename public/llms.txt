@@ -1,0 +1,35 @@
+# AI Brand Exhibit
+
+AI Brand Exhibit is a premier 360° event management, exhibition, brand activation, MICE, and integrated marketing solutions agency in India.
+
+## Contact Information
+- Website: https://www.aibrandexhibit.com
+- Email: info@aibrandexhibit.com
+- Phone: +91 98914 98148
+
+## Core Services
+- **Corporate Events**: Conferences, summits, employee engagement, leadership meets, and town halls.
+- **Live Concerts**: Stage design, AV production, artist coordination, crowd management, and licensing.
+- **Branding Solutions**: Corporate and event space branding, signage, POSM, and environmental graphics.
+- **Product Launches**: Immersive reveals, dealer launch programs, media meets, and hybrid broadcasts.
+- **Brand Activations**: Roadshows, mall activations, retail experiences, and product sampling.
+- **Exhibitions & Trade Shows**: Turnkey stall design & fabrication, 3D designs, and visitor engagement.
+- **MICE Services**: Corporate travel, conventions, destination sourcing, and VIP hospitality.
+- **Video Content Development**: Cinematic corporate films, product showcases, motion graphics, and aftermovies.
+
+## Site Structure & Routes
+- [Home Page](https://www.aibrandexhibit.com/): Interactive landing page showcasing our brand positioning, client reel, and services.
+- [About Us](https://www.aibrandexhibit.com/about): Our company journey, core values, pillars, and leadership.
+- [Services Directory](https://www.aibrandexhibit.com/services): Overview of our 8 core service categories.
+- [Clients & Portfolio](https://www.aibrandexhibit.com/clients): Case studies, event galleries, and trusted brand partners.
+- [Contact Us](https://www.aibrandexhibit.com/contact): Inquiries, specifications, and project booking coordinates.
+
+## Dynamic Service Routes
+- [Corporate Events](https://www.aibrandexhibit.com/services/corporate-events)
+- [Live Concerts](https://www.aibrandexhibit.com/services/live-concerts)
+- [Branding Solutions](https://www.aibrandexhibit.com/services/branding-solutions)
+- [Product Launches](https://www.aibrandexhibit.com/services/product-launches)
+- [Brand Activations](https://www.aibrandexhibit.com/services/brand-activations)
+- [Exhibitions & Trade Shows](https://www.aibrandexhibit.com/services/exhibition-trade-shows)
+- [MICE Services](https://www.aibrandexhibit.com/services/mice-services)
+- [Video Content Development](https://www.aibrandexhibit.com/services/video-content)
