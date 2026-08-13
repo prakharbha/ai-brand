@@ -25,7 +25,7 @@ const SERVICES_LIST = [
   { title: "Video Content Development", id: "video-content" },
 ];
 
-const CONTACT_EMAIL = "info@aibrandexhibit.com";
+const CONTACT_EMAIL = "sales@aibrandexhibit.com";
 const CONTACT_PHONE = "+91 98914 98148";
 
 export default function Navbar() {

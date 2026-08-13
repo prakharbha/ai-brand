@@ -216,7 +216,7 @@ export default function MaintenancePage() {
                 +91 98914 98148
               </a>
               <a
-                href="mailto:info@aibrandexhibit.com"
+                href="mailto:sales@aibrandexhibit.com"
                 className="maint-link"
                 style={{
                   display: "flex",
@@ -230,7 +230,7 @@ export default function MaintenancePage() {
                   <rect width="20" height="16" x="2" y="4" rx="2"/>
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
                 </svg>
-                info@aibrandexhibit.com
+                sales@aibrandexhibit.com
               </a>
             </div>
           </div>
