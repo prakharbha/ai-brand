@@ -4,51 +4,28 @@ export const metadata: Metadata = {
   title: "Under Maintenance | AI Brand Exhibit",
   description:
     "We're making improvements to deliver you an even better experience. We'll be back shortly.",
-  robots: {
-    index: false,
-    follow: false,
-  },
+  robots: { index: false, follow: false },
 };
 
 export default function MaintenancePage() {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body
+    <>
+      {/* Full-screen overlay — covers Navbar/Footer from root layout */}
+      <div
         style={{
-          margin: 0,
-          padding: 0,
-          fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+          position: "fixed",
+          inset: 0,
+          zIndex: 9999,
           background: "#0b060e",
-          color: "#fff",
-          minHeight: "100vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           overflow: "hidden",
+          fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
         }}
       >
-        {/* Animated background blobs */}
-        <div
-          style={{
-            position: "fixed",
-            inset: 0,
-            overflow: "hidden",
-            zIndex: 0,
-            pointerEvents: "none",
-          }}
-        >
+        {/* ── Animated background blobs ── */}
+        <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
           <div
             style={{
               position: "absolute",
@@ -57,8 +34,7 @@ export default function MaintenancePage() {
               width: "60vw",
               height: "60vw",
               borderRadius: "50%",
-              background:
-                "radial-gradient(circle, rgba(222,96,66,0.18) 0%, transparent 70%)",
+              background: "radial-gradient(circle, rgba(222,96,66,0.20) 0%, transparent 70%)",
               animation: "blobFloat 8s ease-in-out infinite",
             }}
           />
@@ -70,8 +46,7 @@ export default function MaintenancePage() {
               width: "55vw",
               height: "55vw",
               borderRadius: "50%",
-              background:
-                "radial-gradient(circle, rgba(122,58,143,0.15) 0%, transparent 70%)",
+              background: "radial-gradient(circle, rgba(122,58,143,0.16) 0%, transparent 70%)",
               animation: "blobFloat 11s ease-in-out infinite reverse",
             }}
           />
@@ -84,134 +59,86 @@ export default function MaintenancePage() {
               width: "40vw",
               height: "40vw",
               borderRadius: "50%",
-              background:
-                "radial-gradient(circle, rgba(245,158,11,0.06) 0%, transparent 70%)",
+              background: "radial-gradient(circle, rgba(245,158,11,0.07) 0%, transparent 70%)",
               animation: "blobFloat 14s ease-in-out infinite",
             }}
           />
         </div>
 
-        {/* Noise/grain texture overlay */}
-        <div
-          style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: 1,
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E\")",
-            backgroundSize: "200px 200px",
-            opacity: 0.4,
-            pointerEvents: "none",
-          }}
-        />
-
-        {/* Main content */}
+        {/* ── Main card ── */}
         <div
           style={{
             position: "relative",
             zIndex: 2,
             textAlign: "center",
-            padding: "2rem",
-            maxWidth: "680px",
+            padding: "2.5rem 2rem",
+            maxWidth: "640px",
             width: "100%",
           }}
         >
-          {/* Animated gear icon */}
+          {/* Logo wordmark */}
+          <p
+            style={{
+              fontSize: "0.7rem",
+              fontWeight: 700,
+              letterSpacing: "0.25em",
+              textTransform: "uppercase",
+              color: "rgba(255,255,255,0.35)",
+              marginBottom: "2.5rem",
+              animation: "fadeInDown 0.7s ease-out",
+            }}
+          >
+            AI Brand Exhibit
+          </p>
+
+          {/* Spinning gear */}
           <div
             style={{
               display: "flex",
               justifyContent: "center",
               marginBottom: "2rem",
+              animation: "fadeInDown 0.7s ease-out 0.1s backwards",
             }}
           >
-            <div style={{ position: "relative", width: 72, height: 72 }}>
-              <svg
-                viewBox="0 0 72 72"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style={{
-                  width: 72,
-                  height: 72,
-                  animation: "spinSlow 12s linear infinite",
-                }}
-              >
-                <circle
-                  cx="36"
-                  cy="36"
-                  r="33"
-                  stroke="rgba(222,96,66,0.25)"
-                  strokeWidth="1.5"
-                  strokeDasharray="6 4"
-                />
-                <path
-                  d="M36 14a22 22 0 1 0 0 44A22 22 0 0 0 36 14zm0 6a16 16 0 1 1 0 32A16 16 0 0 1 36 20z"
-                  fill="rgba(222,96,66,0.1)"
-                  stroke="rgba(222,96,66,0.6)"
-                  strokeWidth="1"
-                />
-                {/* Gear teeth */}
-                {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => (
-                  <rect
-                    key={i}
-                    x="34"
-                    y="5"
-                    width="4"
-                    height="10"
-                    rx="2"
-                    fill="rgba(222,96,66,0.7)"
-                    transform={`rotate(${angle} 36 36)`}
-                  />
-                ))}
-                <circle cx="36" cy="36" r="5" fill="rgba(222,96,66,0.9)" />
-              </svg>
-            </div>
-          </div>
-
-          {/* Brand wordmark */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "8px",
-              marginBottom: "2.5rem",
-              animation: "fadeInDown 0.8s ease-out",
-            }}
-          >
-            <span
-              style={{
-                fontSize: "0.75rem",
-                fontWeight: 600,
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.45)",
-              }}
+            <svg
+              viewBox="0 0 80 80"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ width: 64, height: 64, animation: "spinSlow 14s linear infinite" }}
             >
-              AI Brand Exhibit
-            </span>
+              <circle cx="40" cy="40" r="37" stroke="rgba(222,96,66,0.2)" strokeWidth="1.5" strokeDasharray="7 5" />
+              {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => (
+                <rect
+                  key={i}
+                  x="37.5"
+                  y="4"
+                  width="5"
+                  height="11"
+                  rx="2.5"
+                  fill="rgba(222,96,66,0.75)"
+                  transform={`rotate(${angle} 40 40)`}
+                />
+              ))}
+              <circle cx="40" cy="40" r="18" stroke="rgba(222,96,66,0.5)" strokeWidth="1.5" fill="rgba(222,96,66,0.07)" />
+              <circle cx="40" cy="40" r="6" fill="#de6042" opacity={0.9} />
+            </svg>
           </div>
 
           {/* Headline */}
           <h1
             style={{
-              fontSize: "clamp(2rem, 5vw, 3.5rem)",
-              fontWeight: 700,
-              lineHeight: 1.15,
+              fontSize: "clamp(2.2rem, 6vw, 3.8rem)",
+              fontWeight: 800,
+              lineHeight: 1.1,
               margin: "0 0 1.25rem",
-              animation: "fadeInUp 0.8s ease-out 0.15s backwards",
-              background:
-                "linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.65) 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
+              animation: "fadeInUp 0.8s ease-out 0.2s backwards",
+              color: "#fff",
             }}
           >
-            We&apos;re Under
-            <br />
+            We&apos;re Under{" "}
             <span
               style={{
-                background:
-                  "linear-gradient(135deg, #de6042 0%, #e11d48 50%, #7a3a8f 100%)",
+                background: "linear-gradient(135deg, #de6042 0%, #e11d48 55%, #7a3a8f 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -221,31 +148,30 @@ export default function MaintenancePage() {
             </span>
           </h1>
 
-          {/* Subtext */}
+          {/* Subtitle */}
           <p
             style={{
-              fontSize: "clamp(0.95rem, 2vw, 1.1rem)",
-              color: "rgba(255,255,255,0.5)",
-              lineHeight: 1.7,
+              fontSize: "clamp(0.95rem, 2.2vw, 1.1rem)",
+              color: "rgba(255,255,255,0.45)",
+              lineHeight: 1.75,
               margin: "0 0 2.5rem",
               fontWeight: 300,
-              animation: "fadeInUp 0.8s ease-out 0.3s backwards",
+              animation: "fadeInUp 0.8s ease-out 0.35s backwards",
             }}
           >
-            We&apos;re making things even better for you.
+            We&apos;re working hard behind the scenes to bring you something even better.
             <br />
-            Our team is working hard and we&apos;ll be back shortly.
+            We&apos;ll be back very soon.
           </p>
 
-          {/* Divider */}
+          {/* Gradient divider */}
           <div
             style={{
-              width: "48px",
-              height: "2px",
-              background:
-                "linear-gradient(90deg, #de6042, #7a3a8f)",
+              width: 48,
+              height: 2,
+              background: "linear-gradient(90deg, #de6042, #7a3a8f)",
               margin: "0 auto 2.5rem",
-              borderRadius: "2px",
+              borderRadius: 2,
               animation: "fadeInUp 0.8s ease-out 0.45s backwards",
             }}
           />
@@ -253,127 +179,106 @@ export default function MaintenancePage() {
           {/* Contact info */}
           <div
             style={{
+              animation: "fadeInUp 0.8s ease-out 0.55s backwards",
               display: "flex",
               flexDirection: "column",
-              gap: "0.75rem",
               alignItems: "center",
-              animation: "fadeInUp 0.8s ease-out 0.6s backwards",
+              gap: "1rem",
             }}
           >
             <p
               style={{
-                fontSize: "0.8rem",
-                color: "rgba(255,255,255,0.3)",
-                fontWeight: 500,
-                letterSpacing: "0.1em",
+                fontSize: "0.7rem",
+                letterSpacing: "0.15em",
                 textTransform: "uppercase",
+                color: "rgba(255,255,255,0.25)",
                 margin: 0,
+                fontWeight: 600,
               }}
             >
               Need to reach us?
             </p>
-            <div
-              style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", justifyContent: "center" }}
-            >
+            <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", justifyContent: "center" }}>
               <a
                 href="tel:+919891498148"
-                className="contact-link"
+                className="maint-link"
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  gap: "6px",
+                  gap: 6,
                   textDecoration: "none",
                   fontSize: "0.9rem",
-                  fontWeight: 400,
                 }}
               >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
                 </svg>
                 +91 98914 98148
               </a>
               <a
                 href="mailto:info@aibrandexhibit.com"
-                className="contact-link"
+                className="maint-link"
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  gap: "6px",
+                  gap: 6,
                   textDecoration: "none",
                   fontSize: "0.9rem",
-                  fontWeight: 400,
                 }}
               >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <rect width="20" height="16" x="2" y="4" rx="2" />
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
                 </svg>
                 info@aibrandexhibit.com
               </a>
             </div>
           </div>
 
-          {/* Bottom brand stamp */}
+          {/* Footer stamp */}
           <p
             style={{
               marginTop: "4rem",
-              fontSize: "0.7rem",
-              color: "rgba(255,255,255,0.18)",
-              fontWeight: 400,
-              letterSpacing: "0.05em",
-              animation: "fadeInUp 0.8s ease-out 0.75s backwards",
+              fontSize: "0.65rem",
+              color: "rgba(255,255,255,0.15)",
+              letterSpacing: "0.04em",
+              animation: "fadeInUp 0.8s ease-out 0.7s backwards",
             }}
           >
-            © {new Date().getFullYear()} AI Brand Exhibit (OPC) Private Limited
+            © {new Date().getFullYear()} AI Brand Exhibit (OPC) Private Limited. All rights reserved.
           </p>
         </div>
 
-        {/* Inline keyframe styles */}
+        {/* ── Inline keyframes ── */}
         <style>{`
-          @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-16px); }
-            to   { opacity: 1; transform: translateY(0); }
-          }
-          @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(16px); }
-            to   { opacity: 1; transform: translateY(0); }
-          }
-          @keyframes spinSlow {
-            from { transform: rotate(0deg); }
-            to   { transform: rotate(360deg); }
-          }
+          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
           @keyframes blobFloat {
             0%, 100% { transform: translate(0, 0) scale(1); }
             33%       { transform: translate(2%, 3%) scale(1.04); }
             66%       { transform: translate(-2%, -2%) scale(0.97); }
           }
-          .contact-link {
-            color: rgba(255,255,255,0.55);
+          @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+          }
+          @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-14px); }
+            to   { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(14px); }
+            to   { opacity: 1; transform: translateY(0); }
+          }
+          .maint-link {
+            color: rgba(255,255,255,0.5);
             transition: color 0.2s;
           }
-          .contact-link:hover {
+          .maint-link:hover {
             color: #de6042;
           }
         `}</style>
-      </body>
-    </html>
+      </div>
+    </>
   );
 }
