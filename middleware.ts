@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// Set to `false` (or wire to env var in Vercel dashboard) to turn maintenance off
+// Set to `false` (or add MAINTENANCE_MODE=false in Vercel env vars) to turn off
 const MAINTENANCE_MODE = process.env.MAINTENANCE_MODE
   ? process.env.MAINTENANCE_MODE === "true"
-  : true; // <-- hardcoded ON until env var is set
-const PREVIEW_SECRET = process.env.PREVIEW_SECRET || "true";
-const PREVIEW_COOKIE = "aib_preview";
+  : true; // hardcoded ON until env var is explicitly set
 
-// Paths that should never be redirected (Next.js internals, assets, etc.)
+const PREVIEW_SECRET = process.env.PREVIEW_SECRET || "true";
+
+// Paths that should always pass through
 const BYPASS_PATHS = [
   "/maintenance",
   "/_next",
@@ -21,41 +21,23 @@ const BYPASS_PATHS = [
 export function middleware(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
 
-  // Always allow bypass paths through
+  // Always allow internal/asset paths
   if (BYPASS_PATHS.some((p) => pathname.startsWith(p))) {
     return NextResponse.next();
   }
 
-  // If maintenance mode is off, do nothing
+  // Maintenance mode is off — let everyone through
   if (!MAINTENANCE_MODE) {
     return NextResponse.next();
   }
 
-  // Check if the secret preview param is present → set cookie and redirect cleanly
+  // Allow if ?preview=true is present in the URL (no cookie needed)
   const previewParam = searchParams.get("preview");
   if (previewParam === PREVIEW_SECRET) {
-    // Strip the ?preview= param from the URL for a cleaner experience
-    const cleanUrl = request.nextUrl.clone();
-    cleanUrl.searchParams.delete("preview");
-
-    const response = NextResponse.redirect(cleanUrl);
-    // Cookie lasts 8 hours (one working day)
-    response.cookies.set(PREVIEW_COOKIE, PREVIEW_SECRET, {
-      httpOnly: true,
-      sameSite: "lax",
-      maxAge: 60 * 60 * 8,
-      path: "/",
-    });
-    return response;
-  }
-
-  // Check for existing preview cookie
-  const previewCookie = request.cookies.get(PREVIEW_COOKIE);
-  if (previewCookie?.value === PREVIEW_SECRET) {
     return NextResponse.next();
   }
 
-  // Redirect everyone else to /maintenance
+  // Block everyone else → redirect to maintenance page
   const maintenanceUrl = request.nextUrl.clone();
   maintenanceUrl.pathname = "/maintenance";
   maintenanceUrl.search = "";
@@ -64,12 +46,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    /*
-     * Match all request paths EXCEPT:
-     * - _next/static (static files)
-     * - _next/image (image optimization)
-     * - favicon.ico, icons, public assets
-     */
     "/((?!_next/static|_next/image|favicon.ico|icon.png|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|css|js|woff2?)).*)",
   ],
 };
