@@ -277,23 +277,15 @@ export default function MaintenancePage() {
             >
               <a
                 href="tel:+919891498148"
+                className="contact-link"
                 style={{
                   display: "flex",
                   alignItems: "center",
                   gap: "6px",
-                  color: "rgba(255,255,255,0.55)",
                   textDecoration: "none",
                   fontSize: "0.9rem",
                   fontWeight: 400,
-                  transition: "color 0.2s",
                 }}
-                onMouseOver={(e) =>
-                  ((e.currentTarget as HTMLAnchorElement).style.color = "#de6042")
-                }
-                onMouseOut={(e) =>
-                  ((e.currentTarget as HTMLAnchorElement).style.color =
-                    "rgba(255,255,255,0.55)")
-                }
               >
                 <svg
                   width="14"
@@ -311,23 +303,15 @@ export default function MaintenancePage() {
               </a>
               <a
                 href="mailto:info@aibrandexhibit.com"
+                className="contact-link"
                 style={{
                   display: "flex",
                   alignItems: "center",
                   gap: "6px",
-                  color: "rgba(255,255,255,0.55)",
                   textDecoration: "none",
                   fontSize: "0.9rem",
                   fontWeight: 400,
-                  transition: "color 0.2s",
                 }}
-                onMouseOver={(e) =>
-                  ((e.currentTarget as HTMLAnchorElement).style.color = "#de6042")
-                }
-                onMouseOut={(e) =>
-                  ((e.currentTarget as HTMLAnchorElement).style.color =
-                    "rgba(255,255,255,0.55)")
-                }
               >
                 <svg
                   width="14"
@@ -380,6 +364,13 @@ export default function MaintenancePage() {
             0%, 100% { transform: translate(0, 0) scale(1); }
             33%       { transform: translate(2%, 3%) scale(1.04); }
             66%       { transform: translate(-2%, -2%) scale(0.97); }
+          }
+          .contact-link {
+            color: rgba(255,255,255,0.55);
+            transition: color 0.2s;
+          }
+          .contact-link:hover {
+            color: #de6042;
           }
         `}</style>
       </body>
