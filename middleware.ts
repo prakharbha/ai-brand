@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const MAINTENANCE_MODE = process.env.MAINTENANCE_MODE === "true";
+// Set to `false` (or wire to env var in Vercel dashboard) to turn maintenance off
+const MAINTENANCE_MODE = process.env.MAINTENANCE_MODE
+  ? process.env.MAINTENANCE_MODE === "true"
+  : true; // <-- hardcoded ON until env var is set
 const PREVIEW_SECRET = process.env.PREVIEW_SECRET || "true";
 const PREVIEW_COOKIE = "aib_preview";
 
