@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// Set to `false` (or add MAINTENANCE_MODE=false in Vercel env vars) to turn off
-const MAINTENANCE_MODE = process.env.MAINTENANCE_MODE
-  ? process.env.MAINTENANCE_MODE === "true"
-  : true; // hardcoded ON until env var is explicitly set
+// Set to `true` to turn maintenance mode back on
+const MAINTENANCE_MODE = process.env.MAINTENANCE_MODE === "true";
 
 const PREVIEW_SECRET = process.env.PREVIEW_SECRET || "true";
 
