@@ -52,10 +52,13 @@ export default function AboutContent() {
               Our Journey & Expertise
             </h2>
             <p className="text-zinc-650 font-light leading-relaxed text-base">
-              AI Brand Exhibit (OPC) Private Limited brings together strategic thinking, creative innovation, advanced technology, and meticulous execution to craft impactful events, compelling content, immersive brand experiences, and integrated marketing solutions.
+              AI Brand Exhibit (OPC) Private Limited is a dynamic events, branding and marketing solutions company powered by a team of seasoned professionals with 15+ years of industry experience and a proven track record of delivering more than 500 successful projects spanning corporate events, live concerts, exhibitions, brand activations, video content production and strategic communications.
             </p>
             <p className="text-zinc-650 font-light leading-relaxed text-base">
-              With a proven track record of delivering more than <strong>500 successful projects</strong> spanning corporate events, live concerts, exhibitions, brand activations, video content production, and strategic communications, we stand as a trusted partner for brands nationwide.
+              Over the years, our team members have successfully delivered projects for esteemed organizations such as HCLTech, Vama Sundari Investment (Delhi) Private Limited, HYZERO, Airtel, LG Electronics India Limited, Alstom Transport India Limited, PI Industries Limited, Oil India Limited and Hero Group. These engagements reflect our expertise in creating impactful experiences and our ability to cater to the unique requirements of diverse industries and business sectors.
+            </p>
+            <p className="text-zinc-650 font-light leading-relaxed text-base">
+              At AI Brand Exhibit, we bring together strategic thinking, creative innovation, advanced technology and meticulous execution to craft impactful events, compelling content, immersive brand experiences and integrated marketing solutions aligned with each client&apos;s unique goals.
             </p>
             
             {/* Brands we served */}
