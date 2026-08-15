@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/_next/",
+      disallow: "/maintenance",
     },
     sitemap: "https://www.aibrandexhibit.com/sitemap.xml",
   };
