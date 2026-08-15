@@ -144,11 +144,8 @@ export default function Home() {
             {/* --- ABOUT SUMMARY SECTION --- */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-7 space-y-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-xs font-semibold text-zinc-800 tracking-wider uppercase">
-                  Who We Are
-                </div>
                 <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950">
-                  Delivering Projects Nationwide
+                  Who We Are
                 </h2>
                 <p className="text-zinc-650 font-light leading-relaxed">
                   AI Brand Exhibit is a young and dynamic organization backed by seasoned professionals with extensive experience in conceptualizing and executing corporate events, exhibitions, brand experiences, live concerts, video and digital content development and branding solutions, with execution capabilities across India. We are currently engaged in several exciting projects and continue to expand our presence across sectors.
