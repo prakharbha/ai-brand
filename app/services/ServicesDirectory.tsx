@@ -71,7 +71,9 @@ const SERVICES_DATA: ServiceItem[] = [
     title: "Branding Solutions",
     tagline: "Bringing Brands to Life Across Spaces",
     description: "At AI Brand Exhibit, we create integrated branding solutions that bring brands to life across events, workspaces, retail environments and customer touchpoints. Our expertise combines strategic design, compelling visual storytelling and flawless execution to deliver memorable brand experiences that enhance visibility, strengthen brand recognition and foster meaningful engagement.",
-    image: "/assets/services/branding-solution.jpg",
+    image: "/assets/services/branding-kiosk.jpg",
+    imageLeft: "/assets/services/branding-kiosk.jpg",
+    imageRight: "/assets/services/branding-badges.jpg",
     offerings: [
       "Corporate Branding",
       "Event Branding Structure",
@@ -312,16 +314,40 @@ export default function ServicesDirectory() {
 
                 {/* Left/Right Image Column */}
                 <div className={`lg:col-span-5 ${!isEven ? "lg:order-1" : ""}`}>
-                  <div className="relative aspect-video lg:aspect-square w-full rounded-2xl overflow-hidden border border-zinc-150 shadow-md bg-zinc-50 group">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
-                      sizes="(max-width: 1024px) 100vw, 30vw"
-                      priority={idx === 0}
-                    />
-                  </div>
+                  {service.imageLeft && service.imageRight ? (
+                    <div className="grid grid-cols-2 gap-3 h-full">
+                      <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden border border-zinc-150 shadow-md bg-zinc-50 group">
+                        <Image
+                          src={service.imageLeft}
+                          alt={`${service.title} - left`}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                          sizes="(max-width: 1024px) 50vw, 15vw"
+                          priority={idx === 0}
+                        />
+                      </div>
+                      <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden border border-zinc-150 shadow-md bg-zinc-50 group">
+                        <Image
+                          src={service.imageRight}
+                          alt={`${service.title} - right`}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                          sizes="(max-width: 1024px) 50vw, 15vw"
+                        />
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="relative aspect-video lg:aspect-square w-full rounded-2xl overflow-hidden border border-zinc-150 shadow-md bg-zinc-50 group">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                        sizes="(max-width: 1024px) 100vw, 30vw"
+                        priority={idx === 0}
+                      />
+                    </div>
+                  )}
                 </div>
 
               </motion.div>

@@ -80,7 +80,9 @@ const SERVICES_DATA: ServiceItem[] = [
     title: "Branding Solutions",
     tagline: "Bringing Brands to Life Across Spaces",
     description: "At AI Brand Exhibit, we create integrated branding solutions that bring brands to life across events, workspaces, retail environments and customer touchpoints. Our expertise combines strategic design, compelling visual storytelling and flawless execution to deliver memorable brand experiences that enhance visibility, strengthen brand recognition and foster meaningful engagement.",
-    image: "/assets/services/branding-solution.jpg",
+    image: "/assets/services/branding-kiosk.jpg",
+    imageLeft: "/assets/services/branding-kiosk.jpg",
+    imageRight: "/assets/services/branding-badges.jpg",
     offerings: [
       "Corporate Branding",
       "Event Branding Structure",
@@ -311,16 +313,40 @@ export default async function ServicePage({ params }: PageProps) {
               </div>
 
               {/* Main Image Display */}
-              <div className="relative aspect-video w-full rounded-2xl overflow-hidden border border-zinc-150 shadow-sm bg-zinc-50">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 60vw"
-                  priority
-                />
-              </div>
+              {service.imageLeft && service.imageRight ? (
+                <div className="grid grid-cols-2 gap-4 w-full">
+                  <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden border border-zinc-150 shadow-sm bg-zinc-50">
+                    <Image
+                      src={service.imageLeft}
+                      alt={`${service.title} - charging kiosk`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 50vw, 30vw"
+                      priority
+                    />
+                  </div>
+                  <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden border border-zinc-150 shadow-sm bg-zinc-50">
+                    <Image
+                      src={service.imageRight}
+                      alt={`${service.title} - badges`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 50vw, 30vw"
+                    />
+                  </div>
+                </div>
+              ) : (
+                <div className="relative aspect-video w-full rounded-2xl overflow-hidden border border-zinc-150 shadow-sm bg-zinc-50">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    priority
+                  />
+                </div>
+              )}
 
               {/* Description */}
               <p className="text-zinc-650 font-light text-base leading-relaxed">
