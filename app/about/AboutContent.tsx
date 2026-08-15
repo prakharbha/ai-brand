@@ -31,8 +31,8 @@ export default function AboutContent() {
           className="text-center max-w-3xl mx-auto space-y-4"
         >
 
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-600">
-            About AI Brand Exhibit
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-600">
+            About AI Brand Exhibit (OPC) Private Limited
           </h1>
           <p className="text-zinc-555 text-lg font-light leading-relaxed">
             A dynamic events, branding, and marketing solutions company powered by seasoned professionals with 15+ years of industry experience.
