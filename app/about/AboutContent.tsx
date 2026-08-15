@@ -6,8 +6,7 @@ import BackgroundEffect from "../components/BackgroundEffect";
 import { Award, Compass, Eye, ShieldCheck } from "lucide-react";
 
 const CLIENTS_LIST = [
-  "HCLTech", "Vama Sundari Investment", "HYZERO", "Airtel", 
-  "LG Electronics", "Alstom Transport", "PI Industries", "Oil India", "Hero Group"
+  "Vama Sundari", "HYZERO", "Airtel", "HCL Concerts", "Embassy Services"
 ];
 
 const PILLARS = [
@@ -31,9 +30,7 @@ export default function AboutContent() {
           transition={{ duration: 0.8 }}
           className="text-center max-w-3xl mx-auto space-y-4"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-xs font-semibold text-zinc-800 tracking-wider uppercase">
-            Corporate Profile
-          </div>
+
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-600">
             About AI Brand Exhibit
           </h1>
