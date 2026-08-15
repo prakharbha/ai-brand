@@ -48,7 +48,7 @@ const SERVICES_PREVIEW = [
 ];
 
 const ALL_CLIENTS = [
-  { name: "Vama Sundari",    logo: "",                             ext: "png" },
+  { name: "Vama Sundari Investments (Delhi) Private Limited", logo: "", ext: "png" },
   { name: "HYZERO",          logo: "/assets/clients/hyzero.png",  ext: "png" },
   { name: "Airtel",          logo: "/assets/clients/airtel.png",  ext: "png" },
   { name: "HCL Concerts",   logo: "/assets/clients/hcl.png",           ext: "png" },

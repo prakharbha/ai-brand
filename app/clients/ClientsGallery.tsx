@@ -23,7 +23,7 @@ const CLIENTS: Client[] = [
   { name: "PI Industries",      logo: "/assets/clients/pi-industries.png",ext: "png" },
   { name: "Oil India",          logo: "/assets/clients/oil-india.png",    ext: "png" },
   { name: "Hero MotoCorp",      logo: "/assets/clients/hero.svg",         ext: "svg" },
-  { name: "Vama Sundari",       logo: "",                                 ext: "png" }, // text fallback
+  { name: "Vama Sundari Investments (Delhi) Private Limited", logo: "", ext: "png" }, // text fallback
 ];
 
 /* duplicate for seamless infinite scroll */

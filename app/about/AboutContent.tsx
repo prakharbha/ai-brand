@@ -6,7 +6,7 @@ import BackgroundEffect from "../components/BackgroundEffect";
 import { Award, Compass, Eye, ShieldCheck } from "lucide-react";
 
 const CLIENTS_LIST = [
-  "Vama Sundari", "HYZERO", "Airtel", "HCL Concerts", "Embassy Services"
+  "Vama Sundari Investments (Delhi) Private Limited", "HYZERO", "Airtel", "HCL Concerts", "Embassy Services"
 ];
 
 const PILLARS = [
