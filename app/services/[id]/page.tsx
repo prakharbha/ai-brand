@@ -204,7 +204,7 @@ const SERVICES_DATA: ServiceItem[] = [
     title: "Video Content Development",
     tagline: "Creative Visual Storytelling, Cinematic Production",
     description: "At AI Brand Exhibit, we develop compelling visual content driven by strategic storytelling, cinematic production and creative excellence. From corporate films and brand stories to social media content and event aftermovies, we help brands engage audiences, amplify their digital presence and create lasting impressions.",
-    image: "/assets/about-us.jpg",
+    image: "/assets/services/video-content.jpg",
     offerings: [
       "Corporate Films",
       "Product Showcase Videos",
