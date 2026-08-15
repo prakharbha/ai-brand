@@ -78,7 +78,7 @@ export default function RootLayout({
               {/* Brand + Tagline */}
               <div className="flex flex-col items-start space-y-1.5">
                 <span className="text-zinc-950 text-sm font-semibold tracking-wider uppercase">
-                  AI Brand Exhibit
+                  AI Brand Exhibit (OPC) Private Limited
                 </span>
                 <span className="text-xs text-zinc-500">
                   Creating Experiences. Building Brands. Delivering Impact.
