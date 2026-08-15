@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import BackgroundEffect from "../components/BackgroundEffect";
-import { X, ZoomIn, Star } from "lucide-react";
+import { X, ZoomIn, Star, ChevronLeft, ChevronRight } from "lucide-react";
 
 /* ─── Client data ─────────────────────────────────────── */
 interface Client {
@@ -59,6 +59,37 @@ export default function ClientsGallery() {
   const filteredImages = GALLERY_IMAGES.filter((img) =>
     activeFilter === "all" ? true : img.category === activeFilter
   );
+
+  const currentIndex = selectedImage
+    ? filteredImages.findIndex((img) => img.id === selectedImage.id)
+    : -1;
+
+  const handlePrev = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (currentIndex > -1) {
+      const prevIdx = (currentIndex - 1 + filteredImages.length) % filteredImages.length;
+      setSelectedImage(filteredImages[prevIdx]);
+    }
+  };
+
+  const handleNext = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (currentIndex > -1) {
+      const nextIdx = (currentIndex + 1) % filteredImages.length;
+      setSelectedImage(filteredImages[nextIdx]);
+    }
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!selectedImage) return;
+      if (e.key === "ArrowLeft") handlePrev();
+      if (e.key === "ArrowRight") handleNext();
+      if (e.key === "Escape") setSelectedImage(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedImage, currentIndex, filteredImages]);
 
   return (
     <main className="min-h-screen bg-[#ffffff] text-[#18181b] relative overflow-hidden pt-28 pb-16">
@@ -214,18 +245,43 @@ export default function ClientsGallery() {
             onClick={() => setSelectedImage(null)}
             className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
           >
+            {/* Close Button */}
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-6 right-6 p-2.5 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-colors z-10"
+              className="absolute top-6 right-6 p-2.5 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-colors z-20"
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
             </button>
+
+            {/* Left Arrow */}
+            {filteredImages.length > 1 && (
+              <button
+                onClick={handlePrev}
+                className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-colors z-20 cursor-pointer"
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+            )}
+
+            {/* Right Arrow */}
+            {filteredImages.length > 1 && (
+              <button
+                onClick={handleNext}
+                className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-colors z-20 cursor-pointer"
+                aria-label="Next image"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            )}
+
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              key={selectedImage.id}
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
               className="relative w-full max-w-5xl h-[85vh] flex items-center justify-center"
             >
