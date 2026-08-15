@@ -7,7 +7,7 @@ import BackgroundEffect from "./components/BackgroundEffect";
 import Link from "next/link";
 import Image from "next/image";
 import { 
-  ArrowRight, Sparkles, Award, Globe, Users, 
+  ArrowRight, Globe, Users, 
   Building, Music, Palette, Rocket, Compass, Video, MapPin
 } from "lucide-react";
 
@@ -32,8 +32,6 @@ function SplineLoader() {
 }
 
 const STATS = [
-  { icon: Sparkles, value: "15+", label: "Years of Experience" },
-  { icon: Award, value: "500+", label: "Projects Delivered" },
   { icon: Globe, value: "Pan-India", label: "Execution Capability" },
   { icon: Users, value: "360°", label: "Brand Solutions" },
 ];
