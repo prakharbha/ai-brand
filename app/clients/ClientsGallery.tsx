@@ -15,15 +15,11 @@ interface Client {
 }
 
 const CLIENTS: Client[] = [
-  { name: "Airtel",              logo: "/assets/clients/airtel.png",       ext: "png" },
-  { name: "HCL Tech",           logo: "/assets/clients/hcl.png",          ext: "png" },
-  { name: "HYZERO",             logo: "/assets/clients/hyzero.png",       ext: "png" },
-  { name: "LG Electronics",     logo: "/assets/clients/lg.svg",           ext: "svg" },
-  { name: "Alstom Transport",   logo: "/assets/clients/alstom.svg",       ext: "svg" },
-  { name: "PI Industries",      logo: "/assets/clients/pi-industries.png",ext: "png" },
-  { name: "Oil India",          logo: "/assets/clients/oil-india.png",    ext: "png" },
-  { name: "Hero MotoCorp",      logo: "/assets/clients/hero.svg",         ext: "svg" },
-  { name: "Vama Sundari Investments (Delhi) Private Limited", logo: "", ext: "png" }, // text fallback
+  { name: "Vama Sundari Investments (Delhi) Private Limited", logo: "", ext: "png" },
+  { name: "HYZERO",          logo: "/assets/clients/hyzero.png",  ext: "png" },
+  { name: "Airtel",          logo: "/assets/clients/airtel.png",  ext: "png" },
+  { name: "HCL Concerts",   logo: "/assets/clients/hcl.png",     ext: "png" },
+  { name: "Embassy Services",logo: "",                             ext: "png" },
 ];
 
 /* duplicate for seamless infinite scroll */
