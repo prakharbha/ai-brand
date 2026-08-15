@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import BackgroundEffect from "../components/BackgroundEffect";
-import { X, ZoomIn, Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, Star, ChevronLeft, ChevronRight } from "lucide-react";
 
 /* ─── Client data ─────────────────────────────────────── */
 interface Client {
@@ -218,16 +218,6 @@ export default function ClientsGallery() {
                     className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
                     sizes="(max-width: 1024px) 100vw, 30vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                    <span className="text-brand-orange text-[10px] font-bold uppercase tracking-widest">
-                      {image.category === "concerts" ? "Live Concert" : image.category === "corporate" ? "Corporate Event" : "Brand Activation"}
-                    </span>
-                    <h3 className="text-white text-base font-bold tracking-wide mt-1">{image.title}</h3>
-                    <p className="text-zinc-300 text-xs font-light mt-1 flex items-center gap-1">
-                      <ZoomIn className="w-3.5 h-3.5 text-brand-orange" />
-                      View Details
-                    </p>
-                  </div>
                 </motion.div>
               ))}
             </AnimatePresence>
