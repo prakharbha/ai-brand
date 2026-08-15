@@ -16,6 +16,8 @@ interface ServiceItem {
   tagline: string;
   description: string;
   image: string;
+  imageLeft?: string;
+  imageRight?: string;
   offerings: string[];
   highlights: { title: string; desc: string }[];
 }
@@ -27,7 +29,9 @@ const SERVICES_DATA: ServiceItem[] = [
     title: "Corporate Events",
     tagline: "Inspiring Engagement, Strengthening Culture",
     description: "At AI Brand Exhibit, we design and execute impactful corporate events that inspire engagement, strengthen organizational culture and create meaningful business outcomes. From leadership forums and annual conferences to employee engagement programs and sales kick-off meetings, we curate memorable event experiences driven by innovation, strategic planning and impeccable execution.",
-    image: "/assets/services/corporate-event.jpg",
+    image: "/assets/services/branding-audience.jpg",
+    imageLeft: "/assets/services/corporate-event.jpg",
+    imageRight: "/assets/services/branding-audience.jpg",
     offerings: [
       "Conferences & Summits",
       "Dealer & Distributor Meets",
@@ -71,8 +75,8 @@ const SERVICES_DATA: ServiceItem[] = [
     title: "Branding Solutions",
     tagline: "Bringing Brands to Life Across Spaces",
     description: "At AI Brand Exhibit, we create integrated branding solutions that bring brands to life across events, workspaces, retail environments and customer touchpoints. Our expertise combines strategic design, compelling visual storytelling and flawless execution to deliver memorable brand experiences that enhance visibility, strengthen brand recognition and foster meaningful engagement.",
-    image: "/assets/services/branding-audience.jpg",
-    imageLeft: "/assets/services/branding-audience.jpg",
+    image: "/assets/services/branding-kiosk.jpg",
+    imageLeft: "/assets/services/branding-kiosk.jpg",
     imageRight: "/assets/services/branding-badges.jpg",
     offerings: [
       "Corporate Branding",
