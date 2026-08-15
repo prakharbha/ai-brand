@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import BackgroundEffect from "../components/BackgroundEffect";
-import { X, ZoomIn, Info, Star } from "lucide-react";
+import { X, ZoomIn, Star } from "lucide-react";
 
 /* ─── Client data ─────────────────────────────────────── */
 interface Client {
@@ -212,38 +212,31 @@ export default function ClientsGallery() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedImage(null)}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
           >
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-6 right-6 p-2.5 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-colors"
+              className="absolute top-6 right-6 p-2.5 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-colors z-10"
+              aria-label="Close modal"
             >
               <X className="w-5 h-5" />
             </button>
             <motion.div
-              initial={{ scale: 0.9, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.9, y: 20 }}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
               onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-4xl bg-white rounded-2xl overflow-hidden shadow-2xl border border-zinc-200"
+              className="relative w-full max-w-5xl h-[85vh] flex items-center justify-center"
             >
-              <div className="relative aspect-video w-full bg-black">
-                <Image src={selectedImage.src} alt={selectedImage.title} fill className="object-contain" sizes="100vw" priority />
-              </div>
-              <div className="p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-zinc-100">
-                <div className="space-y-1">
-                  <span className="text-brand-orange text-[10px] font-bold uppercase tracking-widest">
-                    {selectedImage.category === "concerts" ? "Live Concert" : selectedImage.category === "corporate" ? "Corporate Event" : "Brand Activation"}
-                  </span>
-                  <h2 className="text-zinc-950 text-xl font-bold">{selectedImage.title}</h2>
-                  <p className="text-zinc-500 text-sm">{selectedImage.desc}</p>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-zinc-50 border border-zinc-100 text-zinc-500 text-xs font-semibold shrink-0">
-                  <Info className="w-4 h-4 text-brand-orange" />
-                  Delivered Pan-India
-                </div>
-              </div>
+              <Image
+                src={selectedImage.src}
+                alt={selectedImage.title}
+                fill
+                className="object-contain"
+                sizes="100vw"
+                priority
+              />
             </motion.div>
           </motion.div>
         )}
