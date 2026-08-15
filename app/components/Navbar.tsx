@@ -26,7 +26,7 @@ const SERVICES_LIST = [
 ];
 
 const CONTACT_EMAIL = "sales@aibrandexhibit.com";
-const CONTACT_PHONE = "+91 98914 98148";
+const CONTACT_PHONE = "+91 99199 77300";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

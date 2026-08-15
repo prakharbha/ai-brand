@@ -115,11 +115,14 @@ function ContactContent() {
                   </div>
                   <div className="space-y-1">
                     <span className="text-xs uppercase text-zinc-400 font-bold tracking-wider block">Call Details</span>
+                    <a href="tel:+919919977300" className="text-zinc-800 hover:text-brand-orange transition-colors font-semibold block">
+                      +91 99199 77300
+                    </a>
                     <a href="tel:+919891498148" className="text-zinc-800 hover:text-brand-orange transition-colors font-semibold block">
                       +91 98914 98148
                     </a>
-                    <a href="tel:+919919977300" className="text-zinc-800 hover:text-brand-orange transition-colors font-semibold block">
-                      +91 99199 77300
+                    <a href="tel:+919026477300" className="text-zinc-800 hover:text-brand-orange transition-colors font-semibold block">
+                      +91 90264 77300
                     </a>
                   </div>
                 </div>
