@@ -46,6 +46,8 @@ const GALLERY_IMAGES: GalleryImage[] = [
   { id: "c5",  src: "/assets/gallery/concert-5.jpg",  category: "concerts",     title: "Indoor Concert Visuals",      desc: "Immersive LED screen integrations." },
   { id: "co2", src: "/assets/gallery/image.jpg",      category: "corporate",    title: "Executive Annual Meet",       desc: "Conventions space branding & digital setup." },
   { id: "c6",  src: "/assets/gallery/concert-6.jpg",  category: "concerts",     title: "Live Band Show",              desc: "High fidelity audio tuning & backline support." },
+  { id: "b1",  src: "/assets/services/branding-kiosk.jpg",  category: "activations",  title: "HCL Mobile Charging Station", desc: "Custom brand kiosk display & charging booth." },
+  { id: "b2",  src: "/assets/services/branding-badges.jpg", category: "corporate",    title: "HCL Corporate Merchandise",  desc: "Custom anniversary branding & badges." },
 ];
 
 /* ─── Component ───────────────────────────────────────── */
