@@ -148,10 +148,10 @@ export default function Home() {
                   Who We Are
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950">
-                  Delivering Over 500+ Projects Nationwide
+                  Delivering Projects Nationwide
                 </h2>
                 <p className="text-zinc-650 font-light leading-relaxed">
-                  AI Brand Exhibit is a dynamic events, branding and marketing solutions company powered by a team of seasoned professionals with 15+ years of industry experience. We bring together strategic thinking, creative innovation, and advanced technology to build lasting impacts.
+                  AI Brand Exhibit is a young and dynamic organization backed by seasoned professionals with extensive experience in conceptualizing and executing corporate events, exhibitions, brand experiences, live concerts, video and digital content development and branding solutions, with execution capabilities across India. We are currently engaged in several exciting projects and continue to expand our presence across sectors.
                 </p>
                 <div className="pt-2">
                   <Link

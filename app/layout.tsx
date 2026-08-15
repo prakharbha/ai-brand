@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "AI Brand Exhibit | Creating Experiences, Building Brands, Delivering Impact",
-  description: "Pan-India premier events, exhibitions, brand activations, MICE services, video content, and integrated marketing solutions agency. 500+ projects delivered.",
+  description: "Pan-India premier events, exhibitions, brand activations, MICE services, video content, and integrated marketing solutions agency.",
   keywords: ["AI Brand Exhibit", "Event management India", "Exhibition stall designer", "Brand Activations", "Corporate Events Delhi", "Live Concert organizer", "MICE services India"],
   authors: [{ name: "AI Brand Exhibit Team" }],
   metadataBase: new URL("https://www.aibrandexhibit.com"),
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "AI Brand Exhibit | Events, Exhibitions & Brand Marketing",
-    description: "Creating Experiences. Building Brands. Delivering Impact. 500+ projects across India.",
+    description: "Creating Experiences. Building Brands. Delivering Impact.",
     url: "https://www.aibrandexhibit.com",
     siteName: "AI Brand Exhibit",
     type: "website",
