@@ -94,10 +94,7 @@ export default function Home() {
               {/* Left Column: Slogan & Intro Text */}
               <div className="lg:col-span-7 flex flex-col justify-center text-left space-y-8 relative z-20">
                 <div className="space-y-4">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-xs font-semibold text-zinc-800 tracking-wider uppercase">
-                    <span className="w-2 h-2 rounded-full bg-brand-orange animate-ping" />
-                    Corporate Profile 2026
-                  </div>
+
                   
                   <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-600">
                     Creating Experiences.<br />
@@ -108,7 +105,7 @@ export default function Home() {
                   </h1>
                   
                   <p className="text-zinc-650 text-lg md:text-xl font-light leading-relaxed max-w-xl">
-                    Events | Exhibitions | Brand Experiences | Live Concerts | Content Development. Powered by 15+ years of strategic creativity.
+                    Events | Exhibitions | Brand Experiences | Live Concerts | Content Development.
                   </p>
                 </div>
 
