@@ -4,7 +4,7 @@ import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import BackgroundEffect from "../components/BackgroundEffect";
-import { Mail, Phone, Sparkles, Send, CheckCircle } from "lucide-react";
+import { Mail, Phone, Sparkles, Send, CheckCircle, MapPin } from "lucide-react";
 
 const SERVICES_OPTIONS = [
   "Corporate Events",
@@ -108,6 +108,20 @@ function ContactContent() {
               </h2>
               
               <div className="space-y-6">
+                {/* Registered Office Address */}
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-xl bg-brand-yellow/10 text-brand-yellow shrink-0">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div className="space-y-1">
+                    <span className="text-xs uppercase text-zinc-400 font-bold tracking-wider block">Registered Office</span>
+                    <p className="text-zinc-800 font-semibold text-sm leading-relaxed">
+                      L180100, 7th Avenue, Gaur City 1,<br />
+                      Gautam Buddha Nagar – 201318
+                    </p>
+                  </div>
+                </div>
+
                 {/* Phones */}
                 <div className="flex items-start gap-4">
                   <div className="p-3 rounded-xl bg-brand-orange/10 text-brand-orange shrink-0">
@@ -140,7 +154,7 @@ function ContactContent() {
                   </div>
                 </div>
 
-                {/* Slogan details */}
+                {/* Slogan */}
                 <div className="flex items-start gap-4 pt-4 border-t border-zinc-100">
                   <div className="p-3 rounded-xl bg-brand-pink/10 text-brand-pink shrink-0">
                     <Sparkles className="w-5 h-5" />
@@ -148,10 +162,11 @@ function ContactContent() {
                   <div className="space-y-1">
                     <span className="text-xs uppercase text-zinc-400 font-bold tracking-wider block">Our Slogan</span>
                     <p className="text-zinc-650 font-light text-sm italic">
-                      "Creating Experiences. Building Brands. Delivering Impact."
+                      &quot;Creating Experiences. Building Brands. Delivering Impact.&quot;
                     </p>
                   </div>
                 </div>
+
               </div>
             </motion.div>
           </div>
