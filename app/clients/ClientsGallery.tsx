@@ -37,17 +37,15 @@ interface GalleryImage {
 const GALLERY_IMAGES: GalleryImage[] = [
   { id: "c1",  src: "/assets/gallery/concert-1.jpg",  category: "concerts",     title: "HCL Concert Series",         desc: "Stage production & artist management." },
   { id: "c2",  src: "/assets/gallery/concert-2.jpg",  category: "concerts",     title: "Live Concert Rigging",        desc: "State-of-the-art stage setup & audio engineering." },
-  { id: "a1",  src: "/assets/gallery/airtel-1.jpg",   category: "activations",  title: "Airtel Brand Activation",     desc: "Onground experiential launch." },
   { id: "c3",  src: "/assets/gallery/concert-3.jpg",  category: "concerts",     title: "Stadium Performance",         desc: "High-end visual & lighting design." },
-  { id: "a2",  src: "/assets/gallery/airtel-2.jpg",   category: "activations",  title: "Airtel Marketing Campaign",   desc: "Interactive customer engagement setup." },
-  { id: "co1", src: "/assets/gallery/img-5349.jpg",   category: "corporate",    title: "Corporate Awards Night",      desc: "Premium corporate design and event production." },
   { id: "c4",  src: "/assets/gallery/concert-4.jpg",  category: "concerts",     title: "Outdoor Music Festival",      desc: "Crowd control, security and backstage management." },
-  { id: "a3",  src: "/assets/gallery/airtel-3.jpg",   category: "activations",  title: "Airtel Network Launch",       desc: "Product activation with digital displays." },
   { id: "c5",  src: "/assets/gallery/concert-5.jpg",  category: "concerts",     title: "Indoor Concert Visuals",      desc: "Immersive LED screen integrations." },
-  { id: "co2", src: "/assets/gallery/image.jpg",      category: "corporate",    title: "Executive Annual Meet",       desc: "Conventions space branding & digital setup." },
   { id: "c6",  src: "/assets/gallery/concert-6.jpg",  category: "concerts",     title: "Live Band Show",              desc: "High fidelity audio tuning & backline support." },
+  { id: "a1",  src: "/assets/gallery/airtel-1.jpg",   category: "corporate",    title: "Airtel Corporate Event",      desc: "Corporate venue setup & branding." },
+  { id: "a2",  src: "/assets/gallery/airtel-2.jpg",   category: "corporate",    title: "Airtel Corporate Gathering",  desc: "Corporate stage & experience booth." },
+  { id: "a3",  src: "/assets/gallery/airtel-3.jpg",   category: "corporate",    title: "Airtel Executive Meet",       desc: "Corporate meeting & digital presentation." },
   { id: "b1",  src: "/assets/services/branding-kiosk.jpg",  category: "activations",  title: "HCL Mobile Charging Station", desc: "Custom brand kiosk display & charging booth." },
-  { id: "b2",  src: "/assets/services/branding-badges.jpg", category: "corporate",    title: "HCL Corporate Merchandise",  desc: "Custom anniversary branding & badges." },
+  { id: "b2",  src: "/assets/services/branding-badges.jpg", category: "activations",  title: "HCL Corporate Merchandise",  desc: "Custom anniversary branding & badges." },
 ];
 
 /* ─── Component ───────────────────────────────────────── */
