@@ -117,7 +117,7 @@ function ContactContent() {
                     <span className="text-xs uppercase text-zinc-400 font-bold tracking-wider block">Registered Office</span>
                     <p className="text-zinc-800 font-semibold text-sm leading-relaxed">
                       L180100, 7th Avenue, Gaur City 1,<br />
-                      Gautam Buddha Nagar – 201318
+                      Gautam Buddha Nagar – 201318, Uttar Pradesh
                     </p>
                   </div>
                 </div>

@@ -99,7 +99,7 @@ export default function RootLayout({
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
                   <span>
                     <span className="font-semibold text-zinc-700">Regd. Office:</span>{" "}
-                    L180100, 7th Avenue, Gaur City 1, Gautam Buddha Nagar – 201318
+                    L180100, 7th Avenue, Gaur City 1, Gautam Buddha Nagar – 201318, Uttar Pradesh
                   </span>
                 </div>
               </div>
