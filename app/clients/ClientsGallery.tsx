@@ -29,7 +29,7 @@ const MARQUEE_ITEMS = [...CLIENTS, ...CLIENTS];
 interface GalleryImage {
   id: string;
   src: string;
-  category: "concerts" | "corporate" | "activations";
+  category: "concerts" | "corporate" | "branding";
   title: string;
   desc: string;
 }
@@ -44,8 +44,8 @@ const GALLERY_IMAGES: GalleryImage[] = [
   { id: "a1",  src: "/assets/gallery/airtel-1.jpg",   category: "corporate",    title: "Airtel Corporate Event",      desc: "Corporate venue setup & branding." },
   { id: "a2",  src: "/assets/gallery/airtel-2.jpg",   category: "corporate",    title: "Airtel Corporate Gathering",  desc: "Corporate stage & experience booth." },
   { id: "a3",  src: "/assets/gallery/airtel-3.jpg",   category: "corporate",    title: "Airtel Executive Meet",       desc: "Corporate meeting & digital presentation." },
-  { id: "b1",  src: "/assets/services/branding-kiosk.jpg",  category: "activations",  title: "HCL Mobile Charging Station", desc: "Custom brand kiosk display & charging booth." },
-  { id: "b2",  src: "/assets/services/branding-badges.jpg", category: "activations",  title: "HCL Corporate Merchandise",  desc: "Custom anniversary branding & badges." },
+  { id: "b1",  src: "/assets/services/branding-kiosk.jpg",  category: "branding",     title: "HCL Mobile Charging Station", desc: "Custom brand kiosk display & charging booth." },
+  { id: "b2",  src: "/assets/services/branding-badges.jpg", category: "branding",     title: "HCL Corporate Merchandise",  desc: "Custom anniversary branding & badges." },
 ];
 
 /* ─── Component ───────────────────────────────────────── */
@@ -180,7 +180,7 @@ export default function ClientsGallery() {
 
           {/* Filter Nav */}
           <div className="flex justify-center flex-wrap gap-2 border-b border-zinc-100 pb-4">
-            {["all", "concerts", "corporate", "activations"].map((cat) => (
+            {["all", "concerts", "corporate", "branding"].map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
@@ -190,7 +190,13 @@ export default function ClientsGallery() {
                     : "bg-zinc-50 border-zinc-200 text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100"
                 }`}
               >
-                {cat === "all" ? "Show All" : cat}
+                {cat === "all"
+                  ? "Show All"
+                  : cat === "branding"
+                  ? "Branding Solutions"
+                  : cat === "concerts"
+                  ? "Live Concerts"
+                  : "Corporate Events"}
               </button>
             ))}
           </div>
