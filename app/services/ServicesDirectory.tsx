@@ -30,8 +30,6 @@ const SERVICES_DATA: ServiceItem[] = [
     tagline: "Inspiring Engagement, Strengthening Culture",
     description: "At AI Brand Exhibit, we design and execute impactful corporate events that inspire engagement, strengthen organizational culture and create meaningful business outcomes. From leadership forums and annual conferences to employee engagement programs and sales kick-off meetings, we curate memorable event experiences driven by innovation, strategic planning and impeccable execution.",
     image: "/assets/services/branding-audience.jpg",
-    imageLeft: "/assets/services/corporate-event.jpg",
-    imageRight: "/assets/services/branding-audience.jpg",
     offerings: [
       "Conferences & Summits",
       "Dealer & Distributor Meets",
