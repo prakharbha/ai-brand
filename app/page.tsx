@@ -53,7 +53,7 @@ const ALL_CLIENTS = [
   { name: "Vama Sundari",    logo: "",                             ext: "png" },
   { name: "HYZERO",          logo: "/assets/clients/hyzero.png",  ext: "png" },
   { name: "Airtel",          logo: "/assets/clients/airtel.png",  ext: "png" },
-  { name: "HCL Concerts",   logo: "",                             ext: "png" },
+  { name: "HCL Concerts",   logo: "/assets/clients/hcl.png",           ext: "png" },
   { name: "Embassy Services",logo: "",                             ext: "png" },
 ];
 
