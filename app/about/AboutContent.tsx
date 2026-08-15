@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import BackgroundEffect from "../components/BackgroundEffect";
-import { Award, Compass, Eye, ShieldCheck } from "lucide-react";
+import { Award, Compass, Eye } from "lucide-react";
 
 const CLIENTS_LIST = [
   "Vama Sundari Investments (Delhi) Private Limited", "HYZERO", "Airtel", "HCL Concerts", "Embassy Services"
@@ -199,10 +199,6 @@ export default function AboutContent() {
                   <p className="text-zinc-650 text-xs font-light leading-relaxed">
                     {pillar.desc}
                   </p>
-                </div>
-                <div className="pt-4 flex items-center gap-1.5 text-zinc-400 text-xs uppercase font-bold tracking-wider">
-                  <ShieldCheck className="w-3.5 h-3.5 text-brand-orange" />
-                  Partnership Core
                 </div>
               </motion.div>
             ))}
