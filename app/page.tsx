@@ -7,7 +7,7 @@ import BackgroundEffect from "./components/BackgroundEffect";
 import Link from "next/link";
 import Image from "next/image";
 import { 
-  ArrowRight, Globe, Users, 
+  ArrowRight, Globe, Users, Award,
   Building, Music, Palette, Rocket, Compass, Video, MapPin
 } from "lucide-react";
 
