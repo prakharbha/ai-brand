@@ -80,8 +80,8 @@ const SERVICES_DATA: ServiceItem[] = [
     title: "Branding Solutions",
     tagline: "Bringing Brands to Life Across Spaces",
     description: "At AI Brand Exhibit, we create integrated branding solutions that bring brands to life across events, workspaces, retail environments and customer touchpoints. Our expertise combines strategic design, compelling visual storytelling and flawless execution to deliver memorable brand experiences that enhance visibility, strengthen brand recognition and foster meaningful engagement.",
-    image: "/assets/services/branding-kiosk.jpg",
-    imageLeft: "/assets/services/branding-kiosk.jpg",
+    image: "/assets/services/branding-audience.jpg",
+    imageLeft: "/assets/services/branding-audience.jpg",
     imageRight: "/assets/services/branding-badges.jpg",
     offerings: [
       "Corporate Branding",
