@@ -52,6 +52,41 @@ const GALLERY_IMAGES: GalleryImage[] = [
   { id: "c6",  src: "/assets/gallery/concert-6.jpg",  category: "concerts",     title: "Live Band Show",              desc: "High fidelity audio tuning & backline support." },
 ];
 
+/* ─── Component ───────────────────────────────────────── */
+export default function ClientsGallery() {
+  const [activeFilter, setActiveFilter] = useState<string>("all");
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const filteredImages = GALLERY_IMAGES.filter((img) =>
+    activeFilter === "all" ? true : img.category === activeFilter
+  );
+
+  return (
+    <main className="min-h-screen bg-[#ffffff] text-[#18181b] relative overflow-hidden pt-28 pb-16">
+      <BackgroundEffect />
+
+      <div className="relative z-10 space-y-20">
+
+        {/* ── Hero Header ─────────────────────────────── */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="text-center max-w-3xl mx-auto space-y-5"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-xs font-bold text-zinc-700 tracking-widest uppercase">
+              <Star className="w-3.5 h-3.5 text-brand-orange fill-brand-orange" />
+              Our Clients
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-500">
+              Trusted by India's&nbsp;Best
+            </h1>
+            <p className="text-zinc-500 text-lg font-light leading-relaxed">
+              From Fortune-500 giants to India's leading PSUs — we've delivered
+              extraordinary events for brands that demand nothing less.
+            </p>
           </motion.div>
         </div>
 
