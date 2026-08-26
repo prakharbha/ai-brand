@@ -18,7 +18,7 @@ const CLIENTS: Client[] = [
   { name: "Vama Sundari Investments (Delhi) Private Limited", logo: "", ext: "png" },
   { name: "HYZERO",          logo: "/assets/clients/hyzero.png",  ext: "png" },
   { name: "Airtel",          logo: "/assets/clients/airtel.png",  ext: "png" },
-  { name: "HCLTech",         logo: "/assets/clients/hcl.png",     ext: "png" },
+  { name: "HCLTech",         logo: "/assets/clients/hcltech.png", ext: "png" },
   { name: "HCL Concerts",   logo: "/assets/clients/hcl.png",     ext: "png" },
   { name: "Embassy Services",logo: "",                             ext: "png" },
 ];
